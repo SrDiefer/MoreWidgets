@@ -14,19 +14,32 @@ Color.fromARGB(216, 107, 45, 117)
 ];
 
 class AppTheme{
-  final selectedColor;
+  final int selectedColor;
+  final bool isDarkMode;
+
 
   AppTheme({
-    this.selectedColor=0
+    this.selectedColor=0,
+    this.isDarkMode = false
   }): assert(selectedColor >=0, 'Selected color must be greater then 0'),
   assert(selectedColor <= colorList.length, 'Selected color must be less or equal tha ${colorList.length-1}') ;
 
 
   ThemeData getTheme() => ThemeData(
     useMaterial3: true,
+    brightness: isDarkMode? Brightness.dark: Brightness.light,
     colorSchemeSeed: colorList[selectedColor],
     appBarTheme:  const AppBarTheme(
       centerTitle:false,
     )
   );
+
+    copyWith({
+      int? selectedColor,
+      bool? isDarkMode
+    }) => AppTheme(
+      selectedColor: selectedColor??this.selectedColor,
+      isDarkMode: isDarkMode??this.isDarkMode
+    );
+  
 }
