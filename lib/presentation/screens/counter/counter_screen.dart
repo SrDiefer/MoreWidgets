@@ -20,14 +20,13 @@ class CounterScreen extends ConsumerWidget{
     return Scaffold(
       appBar: AppBar(
         title: const Text('Counter Screen'),
-        actions: [
-          IconButton(
-            onPressed: (){
-              ref.read(isDarkModeProvider.notifier).update((state) => !state);
-          }, 
-          icon: Icon(isDarkMode? Icons.dark_mode_outlined: Icons.light_mode_outlined))
-
-        ]
+        // actions: [
+        //   IconButton(
+        //     onPressed: (){
+        //       ref.read(isDarkModeProvider.notifier).update((state) => !state);
+        //   }, 
+        //   icon: Icon(isDarkMode? Icons.dark_mode_outlined: Icons.light_mode_outlined))
+        // ]
           
           
       ),
